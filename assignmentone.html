@@ -1,0 +1,512 @@
+<!--Name: Tim Johnson -->
+<!--Deakin Username: tjjohnso -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Mario's Pizza!</title>
+	
+	<!-- Get the framwork for google maps -->
+	<script
+		src="http://maps.googleapis.com/maps/api/js">
+	</script>
+
+	<!-- Sets up google maps plug in for use -->
+	<script>
+		<!-- uses the longatude and latitude to place the pointer -->
+		var myCenter=new google.maps.LatLng(-37.814968,144.967605);
+
+		function initialize()
+		{
+			var mapProp = {
+			center:myCenter,
+			zoom:15,
+			<!--Uses the map of the type roadmap -->
+			mapTypeId:google.maps.MapTypeId.ROADMAP
+		};
+
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+		var marker=new google.maps.Marker({
+		<!--Sets the marker onto the map -->
+			position:myCenter,
+		});
+
+		marker.setMap(map);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+	
+	<!--Provides jQuery framework -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+</head>
+<body>
+	<!--The home page, with a menu for all items on it-->
+	<div data-role = "page" id="index">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index" class="ui-btn-active">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+			
+		</div>
+		
+		<!--Main Menu that lists all pages for the website -->
+		<div data-role="main" class="ui-content">
+			<H1>Welcome to Mario's Pizza!</H1>
+			
+			    <div data-role="controlgroup" data-type="vertical" data-inline="true">
+					<a href="#menu" data-role="button" data-icon="shop" data-iconpos="left">Menu</a>
+					<a href="#Click-to-Call" data-role="button" data-icon="phone" data-iconpos="left">Click to Call</a>
+					<a href="#navigation" data-role="button" data-icon="navigation" data-iconpos="left">Navigation</a>
+					<a href="#feedback" data-role="button" data-icon="comment" data-iconpos="left">Feedback</a>
+					<a href="#developer" data-role="button" data-icon="user" data-iconpos="left">Developer</a>
+    
+				</div>
+
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+
+	<div data-role = "page" id="menu">
+		<div data-role = "header">
+			<H1>Menu</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu" class="ui-btn-active">Menu</a></li>
+				</ul>
+			</nav>
+
+		</div>
+		
+		<!--Provides a list of categories for the user to choose from -->
+		<div data-role="main" class="ui-content">
+		
+			<ul data-role="listview">
+				<li><a href="#pizza">Pizza</a></li>
+				<li><a href="#pasta">Pasta</a></li>
+				<li><a href="#drinks">Drinks/Desserts</a></li>
+			</ul>
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="Click-to-Call">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		<!--A list of phone numbers to call to order pizza -->
+		<div data-role="main" class="ui-content">
+			<H1>Click-To-Call</H1>
+			<p>Ready to place your order? Give us a call and we will get right onto making your food<p>
+			<p><b>Pick-up:</b> 52442264</p>
+			<p><b>Delivery:</b> 52442263</p>
+			<p><b>Reservations:</b> 52442265</p>
+			<p><b>Complaints:</b> </p>
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="navigation">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+			
+		</div>
+		
+		<!--The map is shown (as defined in the script, see header) along with the street address -->
+		<div data-role="main" class="ui-content">
+			<p>You can find us at <b>180 Collins Street, Melbourne</b>. We are always happy to deliver too!<p>
+			<div id="googleMap" style="width:500px;height:380px;"></div>
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="feedback">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<H1>Feedback</H1>
+			<p>Tell us about your experience<p>
+			
+			<!--Creates a feeback form -->
+			<form>
+				<ul data-role="listview" data-inset="true">
+					<li data-role="fieldcontain">
+						<!--A drop down box to let the user choose how they ordered and ate -->
+						<label for="select-choice-a" class="select">How did you dine?</label>
+						<select name="select-choice-a" id="select-choice-a" data-native-menu="false">
+							<option>Choose one</option>
+							<option value="EI">Eat in</option>
+							<option value="TA">Take Away</option>
+							<option value="DL">Delivered</option>
+						</select>
+					</li>
+				
+					<!--Collects the customers name -->
+					<li data-role="fieldcontain">
+						<label for="name2">Name:</label>
+						<input name="name2" id="name2" value="" data-clear-btn="true" type="text">
+					</li>
+					
+					<!--Collects the users email -->
+					<li data-role="fieldcontain">
+						<label for="email-1">Email Address:</label>
+						<input data-clear-btn="false" name="email-1" id="email-1" value="" type="email">
+					</li>
+					<!--A slider that recieves a rating out of 10 -->
+					<li data-role="fieldcontain">
+						<label for="slider">Rate us:</label>
+						<input name="slider" id="slider" value="5" min="0" max="10" type="range">
+					</li>
+					<!--A field with plenty of room for further comments -->
+					<li data-role="fieldcontain">
+						<label for="textarea2">Comments:</label>
+						<textarea cols="40" rows="8" name="textarea2" id="textarea2"></textarea>
+					</ul>
+					<!--A button with no given function yet -->
+					<li data-role="fieldcontain">
+						<input type ="button" id="mybutton" value ="Add"> 
+					<ul>
+			</form>
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="developer">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		
+		<!--Provides information about myself, and gives information abou the images i used, and where to find them.  -->
+		<div data-role="main" class="ui-content">
+			<H1>Web Developer</H1>
+			<p> This page was created by Tim Johnson, for Assignment one of the class SIT313<p>
+			<p>Username: <b> tjjohnso </b> </p>
+			<p>All images have been used fairly. Below is a table of the resources used, and where to find them.
+			
+			<table style="width:100%">
+				<tr>
+					<td><b>Image</b></td>
+					<td><b>Source</b></td>
+				</tr>
+				<tr>
+					<td>Hawaiian Pizza</td>
+					<td> <a href="https://c1.staticflickr.com/3/2015/2538644225_d4bed4b28d_n.jpg">Link</a> </td>
+				</tr>
+				<tr>
+					<td>American</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg">Link</a> </td>
+				</tr>
+				<tr>
+					<td>Question Mark</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/4/44/Question_mark_(black_on_white).png">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Carbonara</td>
+					<td> <a href="https://pixabay.com/static/uploads/photo/2015/04/08/13/13/pasta-712664_640.jpg">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Napoletana</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/7/77/Pasta_Puttanesca_by_koishikawagirl.jpg">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Bolognese</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/b/b7/Lutong_Bahay_-_Bolognese_Spaghetti.jpg">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Soft Drink</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/1/10/Glass_cola.jpg">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Banana Split</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/c/c7/Banana_Split.jpg">Link</a> </td>
+				</tr>
+								<tr>
+					<td>Sugar</td>
+					<td> <a href="https://upload.wikimedia.org/wikipedia/commons/a/a1/Raw_cane_sugar_light.JPG">Link</a> </td>
+				</tr>
+			</table> 
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="pizza">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<H1>Pizza</H1>
+			
+			<!--Displays the listview with images and text -->
+			<ul data-role="listview" data-split-icon="info" data-split-theme="a" data-inset="true">
+				<li><a href="#">
+					<img src="https://c1.staticflickr.com/3/2015/2538644225_d4bed4b28d_n.jpg"  height="120" width="120">
+				<h2>Hawaiian</h2>
+				<p>The Classic! Topped with Ham, Pineapple and Cheese</p></a>
+					<a href="#hawaiian" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg" height="120" width="120">
+				<h2>Aussie</h2>
+				<p>Our most popular pizza, includes Ham, Egg, Onion, Mushroom and Cheese!</p></a>
+					<a href="#aussie" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Question_mark_(black_on_white).png" height="120" width="120">
+				<h2>Mario's Surprise</h2>
+				<span><p>Mario will include everything and anything he can grab, and throw it on your pizza. Prepare to be surprised</p></span></a>
+					<a href="#surprise" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+			</ul>
+			
+			<!--Provides ingredient information via a pop-up window -->
+			<div data-role="popup" id="hawaiian" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Hawaiian</h3>
+				<p>Pizza Sauce, Ham, Pineapple, Cheese</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="aussie" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Aussie</h3>
+				<p>Pizza Sauce, Ham, Egg, Onion, Mushroom, Cheese</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="surprise" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Mario's Surprise</h3>
+				<p>A complete surprise! We can tell you it will at least come with a pizza base. And probably pineapple, Mario loves pineapple.</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="pasta">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<H1>Pasta</H1>
+			
+			<!--Displays the listview with images and text -->
+			<ul data-role="listview" data-split-icon="info" data-split-theme="a" data-inset="true">
+				<li><a href="#">
+					<img src="https://pixabay.com/static/uploads/photo/2015/04/08/13/13/pasta-712664_640.jpg" height="120" width="120">
+				<h2>Carbonara</h2>
+				<p>Mmm! Marios Favorite</p></a>
+					<a href="#carbonara" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pasta_Puttanesca_by_koishikawagirl.jpg" height="120" width="120">
+				<h2>Napoletana</h2>
+				<p>Gluten free and healthy!</p></a>
+					<a href="#napoletana" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Lutong_Bahay_-_Bolognese_Spaghetti.jpg" height="120" width="120">
+				<h2>Bolognese</h2>
+				<span><p>Meatlovers paradise!</p></span></a>
+					<a href="#bolognese" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+			</ul>
+			
+			<!--Provides ingredient information via a pop-up window -->
+			<div data-role="popup" id="carbonara" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Carbonara</h3>
+				<p>Egg, Bacon, Mushroom, Onion</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="napoletana" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Napoletana</h3>
+				<p>Tomato, Herbs</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="bolognese" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Bolognese</h3>
+				<p>Beef, Onion, Herbs</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+	
+	<div data-role = "page" id="drinks">
+		<div data-role = "header">
+			<H1>Mario's Pizza</H1>
+			
+			<!--Provides a Navbar for all pages -->
+			<nav data-role="navbar">
+				<ul>
+					<li><a href="#index">Home</a></li>
+					<li><a href="#menu">Menu</a></li>
+				</ul>
+			</nav>
+			
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<H1>Drinks</H1>
+			
+			<!--Displays the listview with images and text -->
+			<ul data-role="listview" data-split-icon="info" data-split-theme="a" data-inset="true">
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Glass_cola.jpg" height="120" width="120">
+				<h2>Ass. Softdrinks</h2>
+				<p>A pizzas best friend!!</p></a>
+					<a href="#softd" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Banana_Split.jpg" height="120" width="120">
+				<h2>Banana Split</h2>
+				<p>Probably the healthiest option!</p></a>
+					<a href="#split" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+				<li><a href="#">
+					<img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Raw_cane_sugar_light.JPG" height="120" width="120">
+				<h2>Sugar</h2>
+				<span><p>Get the kids fired up!</p></span></a>
+					<a href="#sugar" data-rel="popup" data-position-to="window" data-transition="pop">Ingredients</a>
+				</li>
+			</ul>
+			
+			<!--Provides ingredient information via a pop-up window -->
+			<div data-role="popup" id="softd" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Softdrinks</h3>
+				<p>We aren't allowed to legally list the names of the drinks, but we have all the favorites!</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="split" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Banana Split</h3>
+				<p>A large banana covered in chocolate syrup, and a couple of scoops of ice-cream. If we have mini-banana lollies, you get some of those too. But we usually dont have them.</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+			<div data-role="popup" id="sugar" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+				<h3>Sugar</h3>
+				<p>Straight sugar!! If you prefer, we can serve it in a beverage such as water, or even sneak it onto your pizza</p>
+				<a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Close</a>
+			</div>
+			
+		</div>
+		
+		<!--Footer including my name -->
+		<div data-role="footer">
+			<h2> Copy-write T. Johnson (2015) </h2>
+		</div>
+	</div>
+
+</body>
+</html>
